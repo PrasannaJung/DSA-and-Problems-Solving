@@ -9,6 +9,10 @@ public class BubbleSort {
     }
 
     static void bubbleSort(int[] arr){
+
+        // making a swapped variable to check if swapping occurs in the first iteration because if the swapping doesn't occur, that means the passed array is already sorted
+        boolean swapped = false;
+
         // setting a counter variable i which represents the total no. of elements in the array
         for(int i = 0;i<arr.length;i++){
             // inner loop j where the j keep tracks of the elements to be compared and swapped. It starts from 1 as we compare the current element at j with the previous one and if the current one is small, we swap those values
@@ -29,7 +33,14 @@ public class BubbleSort {
                     int temp = arr[j];
                     arr[j] = arr[j-1];
                     arr[j-1] = temp;
+                    // make the swapped true as we have entered the swapping condition
+                    swapped = true;
                 }
+            }
+
+            // if the swap is not occurring, we break out of the loop
+            if(!swapped){
+                break;
             }
         }
     }
