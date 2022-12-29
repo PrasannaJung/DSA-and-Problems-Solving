@@ -8,7 +8,9 @@ class SelectionSort {
         System.out.println("SELECTION SORT USING THE LARGEST: ");
         System.out.println(Arrays.toString(arr));
 
-        
+        System.out.println("SELECTION SORT USING THE SMALLEST: ");
+        selectionSortUsingSmallest(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     // selecting the largest number and sorting
@@ -42,5 +44,25 @@ class SelectionSort {
         return max;
     }
 
+    // selection the smallest number and sorting
+    private static void selectionSortUsingSmallest(int[] arr) {
+        for(int i = 0 ; i < arr.length; i++) {
+            int startIndex = i;
+            int smallestIndex = findSmallestIndex(arr , startIndex,arr.length -1);
+            int temp = arr[startIndex];
+            arr[startIndex] = arr[smallestIndex];
+            arr[smallestIndex] = temp;
 
+        }
+    }
+
+    private static int findSmallestIndex(int[] arr, int start, int end) {
+        int min = start;
+        for (int i = start; i <= end ; i++) {
+            if(arr[i] < arr[min]){
+                min = i;
+            }
+        }
+        return min;
+    }
 }
