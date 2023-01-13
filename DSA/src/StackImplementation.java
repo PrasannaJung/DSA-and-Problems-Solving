@@ -5,10 +5,12 @@ public class StackImplementation{
 
 
     public StackImplementation(){
+
         this(DEFAULT_SIZE);
     }
 
     public StackImplementation(int size){
+
         this.stack = new int[size];
     }
 
