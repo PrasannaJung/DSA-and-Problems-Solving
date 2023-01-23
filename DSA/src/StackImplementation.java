@@ -1,60 +1,58 @@
-public class StackImplementation{
-    int[] stack;
-    int pointer = -1;
-    static int DEFAULT_SIZE = 5;
+public class StackImplementation {
 
+  int[] stack;
+  int pointer = -1;
+  static int DEFAULT_SIZE = 5;
 
-    public StackImplementation(){
+  public StackImplementation() {
+    this(DEFAULT_SIZE);
+  }
 
-        this(DEFAULT_SIZE);
+  public StackImplementation(int size) {
+    this.stack = new int[size];
+  }
+
+  public void push(int num) {
+    if (!isFull()) {
+      pointer++;
+      stack[pointer] = num;
+      System.out.println(num + " has been inserted!!");
+    } else {
+      System.out.println("Stack is full!!");
     }
+  }
 
-    public StackImplementation(int size){
-
-        this.stack = new int[size];
+  public void pop() {
+    if (!isEmpty()) {
+      int removedValue = stack[pointer];
+      pointer--;
+      System.out.println(removedValue + " has been removed!!");
+    } else {
+      System.out.println("Stack is empty!!");
     }
+  }
 
-    public void push(int num){
-        if(!isFull()){
-            pointer++;
-            stack[pointer] = num;
-            System.out.println(num+" has been inserted!!");
-        }else{
-            System.out.println("Stack is full!!");
-        }
-    }
+  private boolean isFull() {
+    return pointer == stack.length - 1;
+  }
 
-    public void pop(){
-        if(!isEmpty()){
-            int removedValue = stack[pointer];
-            pointer--;
-            System.out.println(removedValue+" has been removed!!");
-        }else{
-            System.out.println("Stack is empty!!");
-        }
-    }
+  private boolean isEmpty() {
+    return pointer == -1;
+  }
 
-    private boolean isFull(){
-        return pointer == stack.length - 1;
-    }
+  public void peek() {
+    int currentValue = stack[pointer];
+    System.out.println("The topmost value is " + currentValue);
+  }
 
-    private boolean isEmpty(){
-        return pointer == -1;
-    }
-
-    public void peek(){
-        int currentValue = stack[pointer];
-        System.out.println("The topmost value is "+currentValue);
-    }
-
-    public static void main(String[] args){
-        StackImplementation st = new StackImplementation();
-        st.push(1);
-        st.push(2);
-        st.push(3);
-        st.push(4);
-        st.push(5);
-        st.push(6);
-        st.peek();
-    }
+  public static void main(String[] args) {
+    StackImplementation st = new StackImplementation();
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    st.push(5);
+    st.push(6);
+    st.peek();
+  }
 }
