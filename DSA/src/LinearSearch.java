@@ -4,7 +4,7 @@ public class LinearSearch{
         int target = 15;
         int result = linearSearch(arr,target);
         if(result != -1){
-            System.out.println("The array has been found at index: "+result);
+            System.out.println("The target element has been found at index: "+result);
         }else{
             System.out.println("The target element is not in the array");
         }
