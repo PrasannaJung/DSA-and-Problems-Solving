@@ -1,6 +1,6 @@
 public class StackImplementation {
 
-  int[] stack;
+  protected int[] stack;
   int pointer = -1;
   static int DEFAULT_SIZE = 5;
 
@@ -32,11 +32,11 @@ public class StackImplementation {
     }
   }
 
-  private boolean isFull() {
+  public boolean isFull() {
     return pointer == stack.length - 1;
   }
 
-  private boolean isEmpty() {
+  public boolean isEmpty() {
     return pointer == -1;
   }
 
@@ -46,7 +46,7 @@ public class StackImplementation {
   }
 
   public static void main(String[] args) {
-    StackImplementation st = new StackImplementation();
+    StackImplementation st = new StackImplementation(5);
     st.push(1);
     st.push(2);
     st.push(3);

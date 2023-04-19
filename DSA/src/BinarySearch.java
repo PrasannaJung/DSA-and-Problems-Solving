@@ -11,7 +11,7 @@ public class BinarySearch {
     } else {
       System.out.println("The target element is not in the array");
     }
-  }
+  } 
 
   static int binarySearch(int[] arr, int n) {
     int start = 0;
