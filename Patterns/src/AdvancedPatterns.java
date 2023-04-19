@@ -1,8 +1,8 @@
 public class AdvancedPatterns {
     public static void main(String[] args) {
 //        pattern28(5);
-//        pattern30(5);
-        pattern29(5);
+        pattern30(5);
+//        pattern29(5);
 //        pattern35(4);
     }
 
