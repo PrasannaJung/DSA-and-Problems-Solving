@@ -32,7 +32,8 @@ public class SinglyLinkedList {
             temp = temp.next;
         }
         temp.next = node;
-         */
+
+        */
 
         // IF WE ARE USING A TAIL, WE CAN INSERT IT AT LAST IN CONSTANT TIME
         if(tail == null ){
