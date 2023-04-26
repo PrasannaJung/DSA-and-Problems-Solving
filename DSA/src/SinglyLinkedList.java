@@ -90,6 +90,7 @@ public class SinglyLinkedList {
     public void deleteNode(int position){
         if(position == 1){
             head = head.next;
+            size--;
             return;
         }
         Node temp = head;
@@ -98,6 +99,7 @@ public class SinglyLinkedList {
         }
 
         temp.next = temp.next.next;
+        size--;
     }
 
     public void printList(){
