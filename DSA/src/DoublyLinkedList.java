@@ -1,18 +1,14 @@
 public class DoublyLinkedList {
-
     Node head;
     Node tail;
     int size;
-
 
     public DoublyLinkedList(){
         this.size = 0;
     }
 
     public void insertAtFirst(int data){
-
         Node node;
-
         if(head == null){
             node = new Node(data,null,null);
             head = tail = node;
@@ -28,7 +24,7 @@ public class DoublyLinkedList {
     }
 
     public void insertAtLast(int data){
-        if(size == 0){
+        if(tail == null){
             insertAtFirst(data);
             return;
         }
@@ -67,6 +63,7 @@ public class DoublyLinkedList {
         Node node = new Node(data,temp.next,temp);
         temp.next.prev = node;
         temp.next = node;
+        size++;
 
     }
 
@@ -82,6 +79,39 @@ public class DoublyLinkedList {
             temp = temp.next;
         }
         return temp;
+
+    }
+
+    public void deleteNode(int pos){
+
+        if(pos == 1){
+            Node nextNode = head.next;
+            head.next = null;
+            head = nextNode;
+            if(head != null){
+                head.prev = null;
+            }
+            size--;
+            return;
+        }else if(pos == size){
+            Node oldTail = tail;
+            tail = oldTail.prev;
+            oldTail.prev = null;
+            tail.next = null;
+            size--;
+            return;
+        }
+
+        Node temp = head;
+        for(int i = 1;i < pos - 1;i++){
+            temp = temp.next;
+        }
+
+        Node nodeToRemove = temp.next;
+        Node nextNode = nodeToRemove.next;
+        temp.next = nextNode;
+        nextNode.prev = temp;
+        nodeToRemove.next = nodeToRemove.prev = null;
 
     }
 
@@ -135,11 +165,20 @@ public class DoublyLinkedList {
 
 
         dll.insert(3,25);
+        dll.insertAtLast(50);
         dll.printList();
 
         Node nodeAtGivenPosition = dll.getNode(3);
-        System.out.println("The data at the given node is "+nodeAtGivenPosition.data);
-        System.out.println("The next and prev data at given node are "+ nodeAtGivenPosition.next.prev.data +" and "+nodeAtGivenPosition.prev.data);
+        System.out.println("The data at position 3 is "+nodeAtGivenPosition.data);
+
+        dll.deleteNode(1);
+        dll.deleteNode(4);
+        dll.printList();
+        System.out.println("Head and tail are "+dll.getHeadValue()+" "+dll.getTailValue());
+        System.out.println("The data at position 3 is "+dll.getNode(3).data);
+
+
+
 
     }
 }

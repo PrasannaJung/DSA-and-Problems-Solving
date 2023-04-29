@@ -98,8 +98,12 @@ public class SinglyLinkedList {
         for(int i = 1; i < position - 1; i++){
             temp = temp.next;
         }
-
-        temp.next = temp.next.next;
+        Node nextTemp = temp.next;
+        temp.next = nextTemp.next;
+        nextTemp.next = null;
+        if(position == size){
+            tail = temp;
+        }
         size--;
     }
 
@@ -113,19 +117,11 @@ public class SinglyLinkedList {
         System.out.println("NULL");
     }
 
-    private static class Node {
-        private final int data;
-        private Node next;
-
-        public Node(int data){
-            this.data = data;
-        }
-
-        public Node(int data, Node next){
-            this.data = data;
-            this.next = next;
-        }
+    public Node getHeadNode(){
+        return head;
     }
+
+
 
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -148,6 +144,23 @@ public class SinglyLinkedList {
 
         System.out.println("The element at position 4 is "+ sll.getData(4));
 
+        sll.deleteNode(4);
+        sll.printList();
+    }
+}
+
+class Node {
+
+    int data;
+    Node next;
+
+    public Node(int data){
+        this.data = data;
+    }
+
+    public Node(int data, Node next){
+        this.data = data;
+        this.next = next;
     }
 }
 
