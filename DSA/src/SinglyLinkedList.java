@@ -1,5 +1,14 @@
 public class SinglyLinkedList {
     private Node head;
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
+    public void setTail(Node tail) {
+        this.tail = tail;
+    }
+
     private Node tail;
     // SIZE WILL BE A LITTLE HELPFUL DURING INSERTIONS
     private int size;
@@ -146,6 +155,10 @@ public class SinglyLinkedList {
 
         sll.deleteNode(4);
         sll.printList();
+    }
+
+    public Node getTailNode() {
+        return tail;
     }
 }
 
